@@ -4,9 +4,11 @@ import { CartDialogContainer, Header, Footer, RouterElement } from "./uiLayer";
 function App() {
   return (
     <>
-      <div className={styles.wrapper}>
+      <div className={styles["page-wrapper"]}>
         <Header />
-        <RouterElement />
+        <div className={styles["content-wrapper"]}>
+          <RouterElement />
+        </div>
         <Footer />
       </div>
       <CartDialogContainer />
