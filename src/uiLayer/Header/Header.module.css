@@ -1,0 +1,65 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: dodgerblue;
+  color: white;
+  padding: 0 10%;
+  width: 80%;
+}
+
+@keyframes logoanimation {
+  from {
+    box-shadow: 3px 3px 3px red;
+  }
+  20% {
+    box-shadow: 3px 3px 3px orange;
+  }
+  40% {
+    box-shadow: 3px 3px 3px yellow;
+  }
+  60% {
+    box-shadow: 3px 3px 3px green;
+  }
+  80% {
+    box-shadow: 3px 3px 3px lightblue;
+  }
+  to {
+    box-shadow: 3px 3px 3px blue;
+  }
+}
+
+.logo-text {
+  font-weight: 900;
+  user-select: none;
+  animation: 5s logoanimation infinite;
+  user-select: none;
+}
+
+.logo-link:visited {
+  color: white;
+}
+
+.navigation-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 5rem;
+}
+
+.navigation-links li {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.button-container {
+  display: flex;
+  column-gap: 10px;
+}
+
+.auth-button {
+  width: 100px;
+}

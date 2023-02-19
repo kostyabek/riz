@@ -1,0 +1,11 @@
+.content {
+  padding: 50px;
+  flex: 1;
+}
+
+.items-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  
+}

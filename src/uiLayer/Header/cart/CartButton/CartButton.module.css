@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+  width: 100px;
+}
+
+.cart-link {
+  text-decoration: none;
+}
+
+.cart-link:visited {
+  color: black;
+}
+
+.text-container {
+  display: flex;
+  column-gap: 5px;
+}
+
+.text-container p:nth-of-type(2) {
+  font-weight: 700;
+}

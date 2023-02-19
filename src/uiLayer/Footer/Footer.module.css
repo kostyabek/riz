@@ -1,0 +1,22 @@
+.footer {
+  background-color: dodgerblue;
+  width: 80%;
+  padding: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+}
+
+.links {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr 1fr 1fr;
+  column-gap: 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+.links li {
+  list-style: none;
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.item {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.text-container {
+  flex: 1;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.short-description {
+  font-style: italic;
+}
+
+.item-link {
+  display: block;
+  width: 100%;
+}
+
+.item-link,
+.item-link:visited {
+  color: black;
+}

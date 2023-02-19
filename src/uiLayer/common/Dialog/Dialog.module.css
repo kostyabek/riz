@@ -1,0 +1,25 @@
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  overflow: auto;
+}
+
+.close-button {
+  text-decoration: none;
+  color: white;
+  align-self: flex-end;
+}
