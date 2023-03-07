@@ -1,28 +1,16 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useCurrencyToggle, usePriceTag } from "../../../../../../../dataLayer";
 import { ItemDetailsFragment } from "./ItemDetailsFragment";
 
 export const ItemDetailsContainer = () => {
   const { id } = useParams();
-  const { item, currency } = useSelector((store) => {
-    return {
-      item: store.products.find((p) => p.id === parseInt(id)),
-      currency: store.currency,
-    };
+  const item = useSelector((store) => {
+    return store.products.find((p) => p.id === parseInt(id));
   });
-  const [currencyState, setCurrencyState] = useState(currency);
-  const dispatch = useDispatch();
-
-  const isUsd = currencyState === "USD";
-
-  const currencyChangeHandler = () => {
-    const currency = isUsd ? "UAH" : "USD";
-    dispatch({ type: "currencyChange", currency });
-    setCurrencyState(currency);
-  };
-
-  const displayPrice = `${item.price}${isUsd ? "$" : "₴"}`;
+  const currencyChangeHandler = useCurrencyToggle();
+  const priceTagFactory = usePriceTag();
+  const displayPrice = priceTagFactory(item.price);
 
   return (
     <ItemDetailsFragment

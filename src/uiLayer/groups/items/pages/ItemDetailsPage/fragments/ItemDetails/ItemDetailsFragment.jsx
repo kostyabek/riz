@@ -26,6 +26,7 @@ export const ItemDetailsFragment = (props) => {
             cols='30'
             rows='10'
             {...register("reviewText")}
+            value={"undefined"}
           />
           <Button type='submit'>Submit review</Button>
         </div>

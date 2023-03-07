@@ -106,7 +106,10 @@ const initialState = {
     },
   ],
   categories: ["Category A", "Category B", "Category C", "Category D"],
-  currency: "USD",
+  currencyData: {
+    currency: "USD",
+    symbol: "$",
+  },
 };
 
 const addItemActionHandler = (state, itemId) => {
@@ -124,8 +127,8 @@ const removeItemActionHandler = (state, itemId) => {
   };
 };
 
-const currencyChangeActionHandler = (state, currency) => {
-  const isUsd = currency === "USD";
+const currencyChangeActionHandler = (state, currencyData) => {
+  const isUsd = currencyData.currency === "USD";
   const products = state.products.map((e) => {
     return {
       ...e,
@@ -136,7 +139,7 @@ const currencyChangeActionHandler = (state, currency) => {
   return {
     ...state,
     products,
-    currency,
+    currencyData,
   };
 };
 
@@ -147,7 +150,7 @@ const reducer = (state = initialState, action) => {
     case "removeItem":
       return removeItemActionHandler(state, action.itemId);
     case "currencyChange":
-      return currencyChangeActionHandler(state, action.currency);
+      return currencyChangeActionHandler(state, action.currencyData);
     default:
       break;
   }

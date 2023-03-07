@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Header.module.css";
 import { CartButton } from "./cart";
 import { useSelector } from "react-redux";
@@ -10,6 +10,22 @@ import { HomePages } from "../utils";
 export const Header = () => {
   const cartItemIds = useSelector((store) => store.cartItemIds);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const timerId = setTimeout(
+      () => console.log("Hello from Header component!"),
+      2000
+    );
+    return () => clearTimeout(timerId);
+  });
+
+  useEffect(() => {
+    const timerId = setTimeout(
+      () => console.log(`Current authentication status! (${isAuthenticated})`),
+      1000
+    );
+    return () => clearTimeout(timerId);
+  }, [isAuthenticated]);
 
   return (
     <header className={styles.header}>
