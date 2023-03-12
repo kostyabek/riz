@@ -1,6 +1,6 @@
 export const Groups = {
   Home: "/",
-  Items: "/items",
+  Items: "/items/:category",
 };
 
 export const HomePages = {
@@ -8,6 +8,5 @@ export const HomePages = {
 };
 
 export const ItemsPages = {
-  Items: "/",
   ItemDetails: ":id",
 };

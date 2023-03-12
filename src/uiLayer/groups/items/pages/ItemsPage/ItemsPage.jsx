@@ -1,35 +1,36 @@
 import styles from "./ItemsPage.module.css";
 import { Card, Item } from "../../../../common";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { QuickLinksElement } from "./elements";
 
 export const ItemsPage = () => {
   const { cartItemIds, products, categories, currency } = useSelector(
     (store) => store
   );
-  const [category, setCategory] = useState(categories[0]);
-  const filteredProducts = products.filter((e) => e.category === category);
+  const { category } = useParams();
+  const quickLinks = categories.map((c) => {
+    return { label: c, href: `../${c}` };
+  });
+  if (category && categories.every((c) => c !== category)) {
+    return (
+      <>
+        <QuickLinksElement links={quickLinks} />
+        <p>Unknown category...</p>
+      </>
+    );
+  }
+
+  const filteredProducts = category
+    ? products.filter((p) => p.category === category)
+    : products;
 
   return (
     <main className={styles.content}>
+      <QuickLinksElement links={quickLinks} />
       <Card className={styles["items-container"]}>
-        <select
-          value={category}
-          name='category-select'
-          onChange={(event) => {
-            setCategory(event.target.value);
-          }}
-        >
-          {categories.map((c) => (
-            <option
-              key={c}
-              value={c}
-            >
-              {c}
-            </option>
-          ))}
-        </select>
         <div>
+          <h3>{category}</h3>
           <span>Total: {products.length}</span>
           <br />
           <span>Filtered: {filteredProducts.length}</span>

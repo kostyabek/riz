@@ -1,31 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import styles from "./Header.module.css";
 import { CartButton } from "./cart";
 import { useSelector } from "react-redux";
 import { Button } from "../common";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HomePages } from "../utils";
+import { AuthContext } from "../../dataLayer";
 
 export const Header = () => {
+  const { isAuthenticated, setAuthenticationStatus } = useContext(AuthContext);
   const cartItemIds = useSelector((store) => store.cartItemIds);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const timerId = setTimeout(
-      () => console.log("Hello from Header component!"),
-      2000
-    );
-    return () => clearTimeout(timerId);
-  });
-
-  useEffect(() => {
-    const timerId = setTimeout(
-      () => console.log(`Current authentication status! (${isAuthenticated})`),
-      1000
-    );
-    return () => clearTimeout(timerId);
-  }, [isAuthenticated]);
 
   return (
     <header className={styles.header}>
@@ -46,7 +30,7 @@ export const Header = () => {
         <CartButton cartItemsQty={cartItemIds.length} />
         <Button
           className={styles["auth-button"]}
-          onClick={() => setIsAuthenticated(!isAuthenticated)}
+          onClick={() => setAuthenticationStatus(!isAuthenticated)}
         >
           {isAuthenticated ? "LOGOUT" : "LOG-IN"}
         </Button>

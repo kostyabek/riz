@@ -6,7 +6,7 @@ export const ItemsRouter = () => {
   return (
     <Routes>
       <Route
-        path={ItemsPages.Items}
+        index
         element={<ItemsPage />}
       />
       <Route
